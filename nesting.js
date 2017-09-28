@@ -5,30 +5,30 @@
 // === PROBLEM 1 ===========
 
 var employees = [{
-  "firstName": "Von",
-  "lastName": "Budibent",
-  "email": "vbudibent0@163.com",
-  "department": "Sales"
+    "firstName": "Von",
+    "lastName": "Budibent",
+    "email": "vbudibent0@163.com",
+    "department": "Sales"
 }, {
-  "firstName": "Catherina",
-  "lastName": "Swalowe",
-  "email": "cswalowe1@example.com",
-  "department": "Engineering"
+    "firstName": "Catherina",
+    "lastName": "Swalowe",
+    "email": "cswalowe1@example.com",
+    "department": "Engineering"
 }, {
-  "firstName": "Theo",
-  "lastName": "Trill",
-  "email": "ttrill2@sina.com.cn",
-  "department": "Services"
+    "firstName": "Theo",
+    "lastName": "Trill",
+    "email": "ttrill2@sina.com.cn",
+    "department": "Services"
 }, {
-  "firstName": "Elsy",
-  "lastName": "McCrorie",
-  "email": "emccrorie3@netscape.com",
-  "department": "Legal"
+    "firstName": "Elsy",
+    "lastName": "McCrorie",
+    "email": "emccrorie3@netscape.com",
+    "department": "Legal"
 }, {
-  "firstName": "Lorie",
-  "lastName": "Handsheart",
-  "email": "lhandsheart4@fotki.com",
-  "department": "Research and Development"
+    "firstName": "Lorie",
+    "lastName": "Handsheart",
+    "email": "lhandsheart4@fotki.com",
+    "department": "Research and Development"
 }]
 
 // Create a function called 'employeeUpdater'. employeeUpdater will loop over the array above and perform the following:
@@ -36,7 +36,15 @@ var employees = [{
 //  2. If the employee's first name is Lorie, change her department to 'HR'.
 //  3. Return the updated employee array.
 
-// Code here
+function employeeUpdater() {
+    for (let i = 0; i < employees.length; i++) {
+        if (employees[i].firstName === 'Theo')
+            employees.splice(i, 1);
+        if (employees[i].firstName === 'Lorie')
+            employees[i].department = 'HR';
+    }
+    return employees;
+}
 
 
 
@@ -54,8 +62,14 @@ var employees = [{
 
 var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
-// Code here
-
+function removeDuplicates() {
+    var newArr = workplaceAccidents.sort((a, b) => a - b);;
+    for (let i = 0; i < workplaceAccidents.length; i++) {
+        if (newArr[i] === newArr[i + 1])
+            newArr.splice(i, 1);
+    }
+    return newArr;
+}
 
 
 
@@ -68,13 +82,13 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 // === PROBLEM 3 ==========
 
 var cat = {
-  name: 'Fluffy',
-  catFriends: [{
-    name: 'Grumpy',
-    activities: ['be grumpy', 'eat food']
-  }, {
-    name: 'Lazy Bones',
-    activities: ['sleep', 'pre-sleep naps']
+    name: 'Fluffy',
+    catFriends: [{
+        name: 'Grumpy',
+        activities: ['be grumpy', 'eat food']
+    }, {
+        name: 'Lazy Bones',
+        activities: ['sleep', 'pre-sleep naps']
     }]
 }
 
@@ -84,8 +98,8 @@ var cat = {
 
 // Code here
 
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -102,28 +116,29 @@ var fluffy2ndFriend;
 // 3. Change atFaultForAccident from true to false.
 
 var myCar = {
-  make: 'Toyota',
-  model: 'Corolla',
-  year: 1992,
-  accidents: [
-    {
-      date: '3/15/93',
-      damage: '$5,000',
-      atFaultForAccident: true
-    },{
-      date: '7/4/98',
-      damage: '$2,200',
-      atFaultForAccident: true
-    },{
-      date: '6/22/99',
-      damage: '$7,900',
-      atFaultForAccident: true
-    }
-  ]
+    make: 'Toyota',
+    model: 'Corolla',
+    year: 1992,
+    accidents: [{
+        date: '3/15/93',
+        damage: '$5,000',
+        atFaultForAccident: true
+    }, {
+        date: '7/4/98',
+        damage: '$2,200',
+        atFaultForAccident: true
+    }, {
+        date: '6/22/99',
+        damage: '$7,900',
+        atFaultForAccident: true
+    }]
 }
 
-// Code here
-
+function recordCleaner() {
+    for (let i = 0; i < myCar.accidents.length; i++) {
+        myCar.accidents[i].atFaultForAccident = false;
+    }
+}
 
 
 
@@ -141,8 +156,21 @@ var myCar = {
 //    If the number is even, replace it with 'even'.
 // 4. Return the modified numsArr.
 
-var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
+var numsArr = [
+    [1, 2, 3, 4],
+    [5, 6],
+    [7, 8, 9, 10, 11]
+];
 
-
-
-
+function looper() {
+    for (i = 0; i < numsArr.length; i++) {
+        for (j = 0; j < numsArr[i].length; j++) {
+            if (numsArr[i][j] % 2 === 0) {
+                numsArr[i][j] = 'even';
+            } else {
+                numsArr[i][j] = 'odd';
+            }
+        }
+    }
+    return numsArr;
+}
